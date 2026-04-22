@@ -1,0 +1,12 @@
+{
+  "paths": {
+    "base_data": "../../../data/",
+    "results": "../../../results/heuristic_allocation",
+    "routes": "../../../data/rotas.csv"
+  },
+  "parameters": {
+    "total_beneficiaries": 1500,
+    "total_water_sources": 45,
+    "max_capacity_source": 12
+  }
+}

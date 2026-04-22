@@ -1,0 +1,14 @@
+{
+  "paths": {
+    "base_data": "../../../data/",
+    "results": "../../../results/allocation",
+    "routes": "../../../data/rotas.csv"
+  },
+  "parameters": {
+    "total_beneficiaries": 1500,
+    "total_water_sources": 45,
+    "max_capacity_source": 12,
+    "threads": 4,
+    "mip_gap": 0.002
+  }
+}
