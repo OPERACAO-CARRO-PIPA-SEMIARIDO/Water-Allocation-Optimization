@@ -3,7 +3,6 @@
     "results": "results/scheduling"
   },
   "parameters": {
-    "use_warm_start": false,
-    "time_checkpoints_minutes": [5, 10, 30, 60, 120]
+    "use_warm_start": false
   }
 }

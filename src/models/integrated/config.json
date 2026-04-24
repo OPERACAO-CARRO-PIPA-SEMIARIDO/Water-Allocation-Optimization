@@ -6,7 +6,6 @@
     "num_candidates": 3,
     "window_size": 60,
     "overlap": 14,
-    "use_warm_start": true,
-    "time_checkpoints_hours": [2, 4, 6]
+    "use_warm_start": true
   }
 }

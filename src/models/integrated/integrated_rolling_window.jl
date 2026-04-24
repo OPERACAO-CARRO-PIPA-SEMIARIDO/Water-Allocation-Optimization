@@ -158,7 +158,7 @@ function rodar_rolling_window(
         end
     end
 
-    horas_checkpoints = get(params, "time_checkpoints_hours", [2, 4, 6])
+    horas_checkpoints = get(params, "time_checkpoints_hours", [3, 6, 9, 12, 15, 18, 21, 24])
     melhor_obj_encontrado = Inf
     tempo_inicio_global = time()
 

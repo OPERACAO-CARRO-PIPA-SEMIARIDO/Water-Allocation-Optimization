@@ -87,9 +87,9 @@ function rodar_cenario(p_valor, nome_pasta; arquivo_warm_start=nothing)
         end
     end
 
-    checkpoints_minutos = [5, 10, 30, 60, 120]
-    checkpoints_segundos = Float64.(checkpoints_minutos .* 60)
-    nomes_arquivos = ["$(m)min" for m in checkpoints_minutos]
+    horas_checkpoints = get(params, "time_checkpoints_hours", [3, 6, 9, 12, 15, 18, 21, 24])
+    checkpoints_segundos = Float64.(horas_checkpoints .* 3600)
+    nomes_arquivos = ["$(h)h" for h in horas_checkpoints]
     
     tempo_acumulado_anterior = 0.0
 

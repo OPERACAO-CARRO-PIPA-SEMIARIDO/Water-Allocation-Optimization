@@ -15,6 +15,7 @@
     "max_capacity_source": 12,
     "total_days": 365,
     "truck_capacity": 13.0,
+    "time_checkpoints_hours": [3, 6, 9, 12, 15, 18, 21, 24],
     "threads": 4,
     "mip_gap": 0.002,
     "p_value": 0.1
