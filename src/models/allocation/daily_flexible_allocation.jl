@@ -28,9 +28,10 @@ NUM_BENEFICIARIOS = size(abastecimento, 1)
 NM_TOTAL = params["total_water_sources"]
 CAPACIDADE_MAX = params["max_capacity_source"]
 
-NB_TOTAL_ROTAS = 3315 # Arquivo de rotas possui 3315 beneficiários
+NB_TOTAL_ROTAS = get(params, "total_beneficiaries_in_file", 3315)
+NM_TOTAL_ROTAS = get(params, "total_water_sources_in_file", 92)
 distancias = rotas.distance_w_factor
-Dij_completa = transpose(reshape(distancias, (NB_TOTAL_ROTAS, 92)))
+Dij_completa = transpose(reshape(distancias, (NB_TOTAL_ROTAS, NM_TOTAL_ROTAS)))
 Dij = Dij_completa[1:NM_TOTAL, 1:NUM_BENEFICIARIOS]
 Ajk = Matrix{Float64}(abastecimento[1:NUM_BENEFICIARIOS, 2:end])
 

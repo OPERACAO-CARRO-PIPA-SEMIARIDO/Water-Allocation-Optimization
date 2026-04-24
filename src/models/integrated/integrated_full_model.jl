@@ -17,9 +17,10 @@ rotas = CSV.read(paths["routes"], DataFrame)
 calendarioCarnaval = calendarios.carnaval
 entregasObrigatorias = calendarios.lil
 
-TOTAL_BENEFICIARIOS_ARQUIVO = size(beneficiarios_ativos, 1)
-TOTAL_MANANCIAIS_ARQUIVO = 92 
+TOTAL_BENEFICIARIOS_ARQUIVO = get(params, "total_beneficiaries_in_file", size(beneficiarios_ativos, 1))
+TOTAL_MANANCIAIS_ARQUIVO = get(params, "total_water_sources_in_file", 92)
 CAPACIDADE_MAX_MANANCIAL = params["max_capacity_source"]
+CAPACIDADE_CAMINHAO = get(params, "truck_capacity", 13.0)
 
 TOTAL_BENEFICIARIOS = params["total_beneficiaries"]
 TOTAL_MANANCIAIS = params["total_water_sources"]
@@ -75,7 +76,7 @@ function rodar_modelo_integrado(p::Float64, nome_pasta::String)
     @constraint(model, balancoVolumeInicial[j in nb], V[j, 0] == C[j])
     
     @constraint(model, balancoVolume[j in nb, k in 1:last(nd); !(calendarioCarnaval[k] == -1 && j in quebra4) && !(entregasObrigatorias[k] == -1 && j in quebra2)],
-        V[j, k] <= V[j, k-1] - U[j] + 13.0 * sum(x[j, i, k] for i in candidatos_por_beneficiario[j]))
+        V[j, k] <= V[j, k-1] - U[j] + CAPACIDADE_CAMINHAO * sum(x[j, i, k] for i in candidatos_por_beneficiario[j]))
     
     @constraint(model, correcaoVolume[j in nb, k in nd; (calendarioCarnaval[k] == -1 && j in quebra4) || (entregasObrigatorias[k] == -1 && j in quebra2)],
         V[j, k] == 0)

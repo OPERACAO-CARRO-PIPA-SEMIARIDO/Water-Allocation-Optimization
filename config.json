@@ -1,0 +1,22 @@
+{
+  "paths": {
+    "base_data": "data/",
+    "results": "results/",
+    "beneficiaries": "data/Beneficiarios_RN_Ativos1.csv",
+    "dates": "data/datas.csv",
+    "calendars": "data/CalendariosObrigatorios.csv",
+    "routes": "data/rotas.csv"
+  },
+  "parameters": {
+    "total_beneficiaries_in_file": 3315,
+    "total_water_sources_in_file": 92,
+    "total_beneficiaries": 1500,
+    "total_water_sources": 45,
+    "max_capacity_source": 12,
+    "total_days": 365,
+    "truck_capacity": 13.0,
+    "threads": 4,
+    "mip_gap": 0.002,
+    "p_value": 0.1
+  }
+}

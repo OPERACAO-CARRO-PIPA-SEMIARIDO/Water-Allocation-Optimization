@@ -1,13 +1,5 @@
 {
   "paths": {
-    "base_data": "../../../data/",
-    "results": "../../../results/heuristic_scheduling",
-    "beneficiaries": "../../../data/Beneficiarios_RN_Ativos1.csv",
-    "dates": "../../../data/datas.csv"
-  },
-  "parameters": {
-    "total_beneficiaries": 1500,
-    "total_days": 365,
-    "truck_capacity": 13.0
+    "results": "results/heuristic_scheduling"
   }
 }

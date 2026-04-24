@@ -11,8 +11,10 @@ config = load_config("config.json")
 params = config["parameters"]
 paths = config["paths"]
 
-const TOTAL_MANANCIAIS_ARQUIVO = 92
+const TOTAL_MANANCIAIS_ARQUIVO = get(params, "total_water_sources_in_file", 92)
+const NB_TOTAL_ROTAS = get(params, "total_beneficiaries_in_file", 3315)
 const CAPACIDADE_MAX_MANANCIAL = params["max_capacity_source"]
+const CAPACIDADE_CAMINHAO = get(params, "truck_capacity", 13.0)
 
 function rodar_rolling_window(
     p::Float64, 
@@ -93,7 +95,7 @@ function rodar_rolling_window(
     end
     
     @constraint(model, balancoVolume[j in nb, k in 1:num_dias_periodo; !(calendarioCarnaval[k] == -1 && j in quebra4) && !(entregasObrigatorias[k] == -1 && j in quebra2)],
-        V[j, k] <= V[j, k-1] - U[j] + 13.0 * sum(x[j, i, k] for i in candidatos_por_beneficiario[j]))
+        V[j, k] <= V[j, k-1] - U[j] + CAPACIDADE_CAMINHAO * sum(x[j, i, k] for i in candidatos_por_beneficiario[j]))
     
     @constraint(model, correcaoVolume[j in nb, k in 1:num_dias_periodo; (calendarioCarnaval[k] == -1 && j in quebra4) || (entregasObrigatorias[k] == -1 && j in quebra2)],
         V[j, k] == 0)

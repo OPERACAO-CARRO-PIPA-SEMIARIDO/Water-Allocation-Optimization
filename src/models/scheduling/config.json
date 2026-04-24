@@ -1,19 +1,9 @@
 {
   "paths": {
-    "base_data": "../../../data/",
-    "results": "../../../results/scheduling",
-    "beneficiaries": "../../../data/Beneficiarios_RN_Ativos1.csv",
-    "dates": "../../../data/datas.csv",
-    "calendars": "../../../data/CalendariosObrigatorios.csv",
-    "warm_start_file": ""
+    "results": "results/scheduling"
   },
   "parameters": {
-    "total_beneficiaries": 1500,
-    "total_days": 365,
-    "p_value": 0.1,
     "use_warm_start": false,
-    "time_checkpoints_minutes": [5, 10, 30, 60, 120],
-    "threads": 4,
-    "mip_gap": 0.002
+    "time_checkpoints_minutes": [5, 10, 30, 60, 120]
   }
 }
