@@ -5,7 +5,9 @@
     "beneficiaries": "data/Beneficiarios_RN_Ativos1.csv",
     "dates": "data/datas.csv",
     "calendars": "data/CalendariosObrigatorios.csv",
-    "routes": "data/rotas.csv"
+    "routes": "data/rotas.csv",
+    "warm_start_file": "",
+    "initial_volumes_file": ""
   },
   "parameters": {
     "total_beneficiaries_in_file": 3315,
@@ -18,6 +20,11 @@
     "time_checkpoints_hours": [3, 6, 9, 12, 15, 18, 21, 24],
     "threads": 4,
     "mip_gap": 0.002,
-    "p_value": 0.1
+    "p_value": 0.1,
+    "osrm_url": "https://router.project-osrm.org/table/v1/driving/",
+    "use_warm_start": false,
+    "num_candidates": 3,
+    "window_size": 60,
+    "overlap": 14
   }
 }
